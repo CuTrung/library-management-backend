@@ -1,11 +1,11 @@
 import express from 'express';
 const router = express.Router();
+import apiRoutes from './apiRoutes';
 
 const initRoutes = (app) => {
-
-    router.use('/', (req, res) => {
-        return res.send('Hello world');
-    })
+    apiRoutes.bookRoutes(router);
+    apiRoutes.statusRoutes(router);
+    apiRoutes.categoryRoutes(router);
 
     return app.use("/", router);
 }
